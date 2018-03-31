@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="intro.html">
+<link rel="prev" href="intro.html">
+<link rel="next" href="literature.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -109,7 +109,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#un-published-papers"><i class="fa fa-check"></i><b>1.3</b> Un-Published papers</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="background.html"><a href="background.html"><i class="fa fa-check"></i><b>3</b> Background</a></li>
+<li class="chapter" data-level="3" data-path="background.html"><a href="background.html"><i class="fa fa-check"></i><b>3</b> Background</a><ul>
+<li class="chapter" data-level="3.1" data-path="background.html"><a href="background.html#algaebra"><i class="fa fa-check"></i><b>3.1</b> Algaebra</a></li>
+<li class="chapter" data-level="3.2" data-path="background.html"><a href="background.html#statistics"><i class="fa fa-check"></i><b>3.2</b> Statistics</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>4</b> Literature</a></li>
 <li class="chapter" data-level="5" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>5</b> Methods</a></li>
 <li class="chapter" data-level="6" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>6</b> Applications</a><ul>
@@ -138,33 +141,190 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">PhD. Notebook</h1>
-<h4 class="author"><em>Aji John</em></h4>
-<h4 class="date"><em>2018-03-27</em></h4>
+<div id="background" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Background</h1>
+<p>This section deals with what I had to learn or I learnt from the courses I took. You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">2</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="methods.html#methods">5</a>.</p>
+<p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))
+<span class="kw">plot</span>(pressure, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:nice-fig"></span>
+<img src="Research_book_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
+<p class="caption">
+Figure 3.1: Here is a nice figure!
+</p>
 </div>
-<div id="preamble" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Preamble</h1>
-<p>I am a PhD student in Biology at University of Washington. I’m intersted in boundary layer climate, and the effects of microclimates(think of climate right above ground) on plants and animals. I like to develop <em>computational tools</em> in <strong>R and Python</strong>. I embrace openness in research and believe in sharing knowledge.</p>
-<p>Below are the packages developed in <em><strong>R</strong></em> that could be used in any field.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># TrenchR - Energy balance functions</span>
-<span class="co"># devtools::install_github(&quot;trenchproject/TrenchR&quot;)</span>
-<span class="co"># TrenchR - UI to extract microclimate data</span>
-<span class="co"># devtools::install_github(&quot;trenchproject/ebm&quot;)</span>
-<span class="co"># TrenchR - Backend processor for UI (Uses Amazon Mail API)</span>
-<span class="co"># devtools::install_github(&quot;trenchproject/tecor-monitor&quot;)</span></code></pre></div>
-<p>Few sites where my research can be visualized. Extract microclimate data at <a href="http://microclim.org/" class="uri">http://microclim.org/</a>.</p>
-<div id="areas-of-interest" class="section level2">
-<h2><span class="header-section-number">1.1</span> Areas of interest</h2>
+<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="background.html#fig:nice-fig">3.1</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="background.html#tab:nice-tab">3.1</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(
+  <span class="kw">head</span>(iris, <span class="dv">20</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,
+  <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
+)</code></pre></div>
+<table>
+<caption><span id="tab:nice-tab">Table 3.1: </span>Here is a nice table!</caption>
+<thead>
+<tr class="header">
+<th align="right">Sepal.Length</th>
+<th align="right">Sepal.Width</th>
+<th align="right">Petal.Length</th>
+<th align="right">Petal.Width</th>
+<th align="left">Species</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.6</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">3.6</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.7</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.6</td>
+<td align="right">3.4</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.4</td>
+<td align="right">2.9</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.7</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.8</td>
+<td align="right">3.4</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.8</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.3</td>
+<td align="right">3.0</td>
+<td align="right">1.1</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.8</td>
+<td align="right">4.0</td>
+<td align="right">1.2</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">4.4</td>
+<td align="right">1.5</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.3</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.7</td>
+<td align="right">3.8</td>
+<td align="right">1.7</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.8</td>
+<td align="right">1.5</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+</tbody>
+</table>
+<p>You can write citations, too. For example, we are using the <strong>bookdown</strong> package <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-bookdown"><strong>???</strong></span>)</span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(John <a href="#ref-aj2018">2018</a>)</span>.</p>
+<div id="algaebra" class="section level2">
+<h2><span class="header-section-number">3.1</span> Algaebra</h2>
 </div>
-<div id="published-papers" class="section level2">
-<h2><span class="header-section-number">1.2</span> Published papers</h2>
-<p>Ausmees, Kristiina, and Pushpam Aji John. “Analysis of Chromosome 20-A Study.” arXiv preprint arXiv:1607.00276 (2016).</p>
-<p>John, Pushpam Aji, et al. “868 MHz Wireless Sensor Network-A Study.” arXiv preprint arXiv:1609.00475 (2016).</p>
-</div>
-<div id="un-published-papers" class="section level2">
-<h2><span class="header-section-number">1.3</span> Un-Published papers</h2>
+<div id="statistics" class="section level2">
+<h2><span class="header-section-number">3.2</span> Statistics</h2>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-aj2018">
+<p>John, Aji. 2018. <em>Time Seriously</em>. 1st ed. Seattle, Washington: Chapman; Hall/CRC. <a href="http://ajijohn.com" class="uri">http://ajijohn.com</a>.</p>
 </div>
 </div>
             </section>
@@ -172,8 +332,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="literature.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -202,7 +362,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-bg.Rmd",
 "text": "Edit"
 },
 "download": ["Research book.pdf", "Research book.epub"],
