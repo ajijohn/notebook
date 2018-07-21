@@ -25,15 +25,15 @@
 <meta name="author" content="Aji John">
 
 
-<meta name="date" content="2018-07-21">
+<meta name="date" content="2018-05-21">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="methods.html">
-<link rel="next" href="final-words.html">
+<link rel="prev" href="journal.html">
+<link rel="next" href="calculte-roughness-and-z.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -141,6 +141,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.5" data-path="journal.html"><a href="journal.html#section-4"><i class="fa fa-check"></i><b>8.5</b> 4-29-2008</a></li>
 <li class="chapter" data-level="8.6" data-path="journal.html"><a href="journal.html#section-5"><i class="fa fa-check"></i><b>8.6</b> 5-21-2018</a></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="calculate-wind-speed-at-any-height-u-starklogzz0.html"><a href="calculate-wind-speed-at-any-height-u-starklogzz0.html"><i class="fa fa-check"></i><b>9</b> Calculate (Wind speed at any height = U_star/K*log(Z/Z0))</a></li>
+<li class="chapter" data-level="10" data-path="calculte-roughness-and-z.html"><a href="calculte-roughness-and-z.html"><i class="fa fa-check"></i><b>10</b> Calculte roughness and Z*</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -161,24 +163,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="applications" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Applications</h1>
-<p>Some <em>significant</em> applications are demonstrated in this chapter.</p>
-<div id="example-one" class="section level2">
-<h2><span class="header-section-number">6.1</span> Example one</h2>
-</div>
-<div id="example-two" class="section level2">
-<h2><span class="header-section-number">6.2</span> Example two</h2>
-
-</div>
+<div id="calculate-wind-speed-at-any-height-u_starklogzz0" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Calculate (Wind speed at any height = U_star/K*log(Z/Z0))</h1>
+<p>Calculate zero plane displcement</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#TODO - Do by each hour</span>
+zeroDM&lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(mclim_<span class="dv">2018</span><span class="op">$</span>height) <span class="op">~</span><span class="st"> </span>mclim_<span class="dv">2018</span><span class="op">$</span>ws)
+zD &lt;-<span class="st"> </span><span class="kw">exp</span>(zeroDM<span class="op">$</span>coeff[<span class="dv">1</span>])
+<span class="co">#.16</span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="methods.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="final-words.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="journal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="calculte-roughness-and-z.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -208,7 +207,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-application.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-dailylog.Rmd",
 "text": "Edit"
 },
 "download": ["Research book.pdf", "Research book.epub"],
