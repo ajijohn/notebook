@@ -161,12 +161,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Daily <em>lab notes</em></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 <span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>## ── Attaching packages ───────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ tibble  1.4.2     ✔ purrr   0.2.4
 ## ✔ tidyr   0.8.0     ✔ dplyr   0.7.4
 ## ✔ readr   1.1.1     ✔ stringr 1.3.1
 ## ✔ tibble  1.4.2     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ──────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)</code></pre></div>
@@ -240,13 +240,13 @@ Sunriseupper_<span class="dv">2017</span><span class="op">$</span>month &lt;-<sp
 ##  $ month                   : chr  &quot;12&quot; &quot;12&quot; &quot;12&quot; &quot;12&quot; ...</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Paradise_<span class="dv">2017</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(date,Solar.Pyranometer..W.m2.)) <span class="op">+</span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">se =</span> <span class="ot">TRUE</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Solar Radiation at Paradise(5380 ft)&quot;</span>)<span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Date&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Solar Irradiance(W/m^2)&quot;</span>)</code></pre></div>
 <pre><code>## `geom_smooth()` using method = &#39;gam&#39; and formula &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">CampMuir_<span class="dv">2017</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(date,Solar.Pyranometer..W.m2.)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">se =</span> <span class="ot">TRUE</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Solar Radiation at CampMuir(10110 ft)&quot;</span>)<span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Date&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Solar Irradiance(W/m^2)&quot;</span>)</code></pre></div>
 <pre><code>## `geom_smooth()` using method = &#39;gam&#39; and formula &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Sunriseupper_<span class="dv">2017</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(date,Solar.Pyranometer..W.m2.)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">se =</span> <span class="ot">TRUE</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Solar Radiation at Sunrise-Upper(6880 ft)&quot;</span>)<span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Date&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Solar Irradiance(W/m^2)&quot;</span>)</code></pre></div>
 <pre><code>## `geom_smooth()` using method = &#39;gam&#39; and formula &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-5-3.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-7-3.png" width="672" /></p>
 <p>Feedback</p>
 <p>Better to do it houry so that daily patterns do confound it. So, now we have hourly solar radiation across all the sites.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 4-28-2008
@@ -259,7 +259,7 @@ Sunriseupper_<span class="dv">2017</span><span class="op">$</span>month &lt;-<sp
 <span class="st">  </span><span class="kw">geom_boxplot</span>( <span class="kw">aes</span>(hr,Solar.Pyranometer..W.m2.),<span class="dt">outlier.shape=</span><span class="dv">1</span>) <span class="op">+</span><span class="st">    </span>
 <span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y=</span>mean, <span class="dt">geom=</span><span class="st">&quot;point&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_se, <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>)</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>,<span class="dt">x=</span><span class="dv">20</span>,<span class="dt">y=</span><span class="dv">55</span>,<span class="dt">label=</span><span class="st">&quot;wassup!&quot;</span> , <span class="dt">family=</span><span class="st">&quot;xkcd&quot;</span>
            )</code></pre></div>
 <pre><code>## mapping: x = ~x, y = ~y 
@@ -275,7 +275,7 @@ Sunriseupper_<span class="dv">2017</span><span class="op">$</span>month &lt;-<sp
 <span class="st">  </span><span class="kw">geom_boxplot</span>( <span class="kw">aes</span>(hr,Solar.Pyranometer..W.m2.),<span class="dt">outlier.shape=</span><span class="dv">1</span>) <span class="op">+</span><span class="st">    </span>
 <span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.y=</span>mean, <span class="dt">geom=</span><span class="st">&quot;point&quot;</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun.data =</span> mean_se, <span class="dt">geom =</span> <span class="st">&quot;errorbar&quot;</span>)</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>It does confirm that higher the sites, the solar radiation is slightly higher.</p>
 </div>
 <div id="section-4" class="section level2">
@@ -304,7 +304,7 @@ g2 &lt;-<span class="st"> </span>CampMuir_<span class="dv">2017</span> <span cla
 <span class="kw">grid.arrange</span>(g1, g2,<span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">top =</span> <span class="st">&quot;JJA - Mean Hourly Solar Radiation at 2 elevations&quot;</span>)</code></pre></div>
 <pre><code>## No summary function supplied, defaulting to `mean_se()</code></pre>
 <pre><code>## No summary function supplied, defaulting to `mean_se()</code></pre>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 4-29-2008
 <span class="kw">library</span>(gridExtra)
 <span class="co">#</span>
@@ -320,7 +320,7 @@ g4 &lt;-<span class="st"> </span>CampMuir_<span class="dv">2017</span> <span cla
 
 
 <span class="kw">grid.arrange</span>(g3, g4,<span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">top =</span> <span class="st">&quot;June - Max Hourly Solar Radiation at 2 elevations&quot;</span>)</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#ggplotly()</span></code></pre></div>
 <p>Lets check the daily max for each day in summer(JJA)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 4-29-2008
@@ -342,7 +342,7 @@ g6 &lt;-<span class="st"> </span>CampMuir_<span class="dv">2017</span> <span cla
 
 
 <span class="kw">grid.arrange</span>(g5, g6,<span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">top =</span> <span class="st">&quot;JJA - Daily Max Solar Radiation at 2 elevations&quot;</span>)</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#ggplotly()</span></code></pre></div>
 <p>Compare wind and solar at two sites</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 4-29-2008
@@ -364,7 +364,7 @@ g6 &lt;-<span class="st"> </span>CampMuir_<span class="dv">2017</span> <span cla
 
 
 <span class="kw">grid.arrange</span>(g5, g6,<span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">top =</span> <span class="st">&quot;JJA - Daily Max Solar and Max Wind(Avg)  at 2 elevations&quot;</span>)</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#ggplotly()</span></code></pre></div>
 </div>
 <div id="section-5" class="section level2">
@@ -393,13 +393,13 @@ mclim_<span class="dv">2018</span><span class="op">$</span>month&lt;-<span class
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 5-21-2018
 mclim_<span class="dv">2018</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">day</span>(time) <span class="op">%in%</span><span class="st"> &#39;10&#39;</span>) <span class="op">%&gt;%</span>
 <span class="kw">ggplot</span>( <span class="kw">aes</span>(time,temp,<span class="dt">color =</span> nodeid)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#ggplotly()</span></code></pre></div>
 <p>Whole week</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 5-21-2018
 mclim_<span class="dv">2018</span> <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="kw">ggplot</span>( <span class="kw">aes</span>(time,temp,<span class="dt">color =</span> nodeid)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#ggplotly()</span></code></pre></div>
 <p>Add heights (Roghly .25 m apart)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mclim_<span class="dv">2018</span><span class="op">$</span>height &lt;-<span class="st"> </span><span class="dv">0</span>
@@ -414,7 +414,7 @@ mclim_<span class="dv">2018</span>[mclim_<span class="dv">2018</span><span class
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 5-21-2018
 mclim_<span class="dv">2018</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">day</span>(time) <span class="op">%in%</span><span class="st"> &#39;10&#39;</span>) <span class="op">%&gt;%</span>
 <span class="kw">ggplot</span>( <span class="kw">aes</span>(time,temp,<span class="dt">color =</span> <span class="kw">factor</span>(height))) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#ggplotly()</span></code></pre></div>
 <p>Add simulated wind profile</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mclim_<span class="dv">2018</span><span class="op">$</span>ws &lt;-<span class="st"> </span><span class="dv">0</span>
@@ -428,12 +428,12 @@ mclim_<span class="dv">2018</span>[mclim_<span class="dv">2018</span><span class
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 5-21-2018
 mclim_<span class="dv">2018</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">day</span>(time) <span class="op">%in%</span><span class="st"> &#39;10&#39;</span>, height <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="fl">0.25</span>,<span class="dv">1</span>)) <span class="op">%&gt;%</span>
 <span class="kw">ggplot</span>( <span class="kw">aes</span>(time,temp,<span class="dt">color =</span> <span class="kw">factor</span>(height))) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <p>Redo the plot by height for Wind Speed</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 5-21-2018
 mclim_<span class="dv">2018</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">day</span>(time) <span class="op">%in%</span><span class="st"> &#39;10&#39;</span>, height <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="fl">0.25</span>,<span class="fl">0.5</span>,<span class="fl">0.75</span>,<span class="dv">1</span>)) <span class="op">%&gt;%</span>
 <span class="kw">ggplot</span>( <span class="kw">aes</span>(time,ws,<span class="dt">color =</span> <span class="kw">factor</span>(height))) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <p>Calculate (Wind speed at any height = U_star/K*log(Z/Z0))</p>
 <p>Calculate zero plane displcement</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#TODO - Do by each hour</span>
@@ -486,7 +486,7 @@ r=<span class="st"> </span><span class="kw">raster</span>(<span class="kw">paste
 
 <span class="co">#visualize the raster in 3D</span>
 <span class="kw">plot</span>(r,<span class="dt">lit=</span><span class="ot">TRUE</span>)</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 fs &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path=</span><span class="st">&quot;./data&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;rainier*&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
 
@@ -509,7 +509,7 @@ m &lt;-<span class="st"> </span><span class="kw">do.call</span>(merge, x)</code>
 <h2><span class="header-section-number">8.7</span> 7-25-2018</h2>
 <p>Check the diurnal variation for summer, using Paradise as a proxy</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Paradise_<span class="dv">2017</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(date,month,hr) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(month,Solar.Pyranometer..W.m2.)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() </code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#.16</span></code></pre></div>
 <p>Use SNOTEL data from Paradise(Latitude: 46.78 Longitude: -121.74)</p>
 <p>Check the diurnal variation for summer, using Paradise as a proxy</p>
@@ -526,19 +526,19 @@ Paradise_Snotel_<span class="dv">2011</span><span class="op">$</span>date &lt;-<
 Paradise_Snotel_<span class="dv">2011</span><span class="op">$</span>month &lt;-<span class="st"> </span><span class="kw">strftime</span>(Paradise_Snotel_<span class="dv">2011</span><span class="op">$</span>Date,<span class="st">&#39;%m&#39;</span>)
 
 Paradise_Snotel_<span class="dv">2013</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(date,month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">diva=</span>TMAX.D.<span class="dv">1</span>..degC.<span class="op">-</span>TMIN.D.<span class="dv">1</span>..degC.)<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(date,TMIN.D.<span class="dv">1</span>..degC.,<span class="dt">colour=</span><span class="st">&#39;min&#39;</span>))  <span class="op">+</span><span class="kw">geom_line</span>(<span class="kw">aes</span>(date,TMAX.D.<span class="dv">1</span>..degC.,<span class="dt">colour=</span><span class="st">&#39;max&#39;</span>)) <span class="op">+</span><span class="kw">geom_line</span>(<span class="kw">aes</span>(date,diva,<span class="dt">colour=</span><span class="st">&#39;diurnal variation&#39;</span>))<span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>()</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#.16</span></code></pre></div>
 <p>Only Summer</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Paradise_Snotel_<span class="dv">2013</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(date,month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">as.numeric</span>(month) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">diva=</span>TMAX.D.<span class="dv">1</span>..degC.<span class="op">-</span>TMIN.D.<span class="dv">1</span>..degC.)<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(date,TMIN.D.<span class="dv">1</span>..degC.,<span class="dt">colour=</span><span class="st">&#39;min&#39;</span>))  <span class="op">+</span><span class="kw">geom_line</span>(<span class="kw">aes</span>(date,TMAX.D.<span class="dv">1</span>..degC.,<span class="dt">colour=</span><span class="st">&#39;max&#39;</span>))<span class="op">+</span><span class="kw">geom_line</span>(<span class="kw">aes</span>(date,TAVG.D.<span class="dv">1</span>..degC.,<span class="dt">colour=</span><span class="st">&#39;avg&#39;</span>)) <span class="op">+</span><span class="kw">geom_line</span>(<span class="kw">aes</span>(date,diva,<span class="dt">colour=</span><span class="st">&#39;diurnal variation&#39;</span>))<span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Date&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Snotel Paradise - Water year 2013 &quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_color_discrete</span>(<span class="dt">name=</span><span class="st">&quot;Metric&quot;</span>)</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#.16</span></code></pre></div>
 <p>For 2012</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Paradise_Snotel_<span class="dv">2012</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(date,month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">as.numeric</span>(month) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>) <span class="op">&amp;</span><span class="st"> </span>TMIN.D.<span class="dv">1</span>..degC. <span class="op">!=</span><span class="st"> </span><span class="op">-</span><span class="fl">99.9</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">diva=</span>TMAX.D.<span class="dv">1</span>..degC.<span class="op">-</span>TMIN.D.<span class="dv">1</span>..degC.)<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(date,TMIN.D.<span class="dv">1</span>..degC.,<span class="dt">colour=</span><span class="st">&#39;min&#39;</span>))  <span class="op">+</span><span class="kw">geom_line</span>(<span class="kw">aes</span>(date,TMAX.D.<span class="dv">1</span>..degC.,<span class="dt">colour=</span><span class="st">&#39;max&#39;</span>))<span class="op">+</span><span class="kw">geom_line</span>(<span class="kw">aes</span>(date,TAVG.D.<span class="dv">1</span>..degC.,<span class="dt">colour=</span><span class="st">&#39;avg&#39;</span>)) <span class="op">+</span><span class="kw">geom_line</span>(<span class="kw">aes</span>(date,diva,<span class="dt">colour=</span><span class="st">&#39;diurnal variation&#39;</span>))<span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Date&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Snotel Paradise - Water year 2012 &quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_color_discrete</span>(<span class="dt">name=</span><span class="st">&quot;Metric&quot;</span>)</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#.16</span></code></pre></div>
 <p>For 2011</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Paradise_Snotel_<span class="dv">2011</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(date,month) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">as.numeric</span>(month) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">diva=</span>TMAX.D.<span class="dv">1</span>..degC.<span class="op">-</span>TMIN.D.<span class="dv">1</span>..degC.)<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(date,TMIN.D.<span class="dv">1</span>..degC.,<span class="dt">colour=</span><span class="st">&#39;min&#39;</span>))  <span class="op">+</span><span class="kw">geom_line</span>(<span class="kw">aes</span>(date,TMAX.D.<span class="dv">1</span>..degC.,<span class="dt">colour=</span><span class="st">&#39;max&#39;</span>))<span class="op">+</span><span class="kw">geom_line</span>(<span class="kw">aes</span>(date,TAVG.D.<span class="dv">1</span>..degC.,<span class="dt">colour=</span><span class="st">&#39;avg&#39;</span>)) <span class="op">+</span><span class="kw">geom_line</span>(<span class="kw">aes</span>(date,diva,<span class="dt">colour=</span><span class="st">&#39;diurnal variation&#39;</span>))<span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Date&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Snotel Paradise - Water year 2011 &quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_color_discrete</span>(<span class="dt">name=</span><span class="st">&quot;Metric&quot;</span>)</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#.16</span></code></pre></div>
 </div>
 <div id="section-7" class="section level2">
@@ -562,10 +562,10 @@ Paradise16&lt;-<span class="st"> </span>Paradise_5400_<span class="dv">2017</spa
 Paradise23&lt;-<span class="st"> </span>Paradise_5400_<span class="dv">2017</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(date,month,day,hr) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">as.numeric</span>(month) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>) <span class="op">&amp;</span><span class="st"> </span><span class="kw">as.numeric</span>(day) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">23</span>) ) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="kw">as.numeric</span>(hr),Temperature..deg.F.,<span class="dt">group=</span>month,<span class="dt">color=</span>month)) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Hour&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Temperature&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Paradise 5400 NWAC - Calendar year 2017  - 23rd day&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_color_discrete</span>(<span class="dt">name=</span><span class="st">&quot;Month&quot;</span>)
 
 <span class="kw">grid.arrange</span>(Paradise9,Paradise16,Paradise23)</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 <p>Days overlapping eath other</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Paradise_5400_<span class="dv">2017</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(date,month,day,hr) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">as.numeric</span>(month) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>) <span class="op">&amp;</span><span class="st"> </span><span class="kw">as.numeric</span>(day) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">17</span>,<span class="dv">18</span>,<span class="dv">19</span>,<span class="dv">20</span>) ) <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="kw">as.numeric</span>(hr),Temperature..deg.F.,<span class="dt">shape=</span>day,<span class="dt">group=</span>month,<span class="dt">color=</span>month)) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;Hour&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Temperature&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Paradise 5400 NWAC - Calendar year 2017  - Days(15-20) &quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_color_discrete</span>(<span class="dt">name=</span><span class="st">&quot;Month&quot;</span>)</code></pre></div>
-<p><img src="Research_book_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 
 <div id="refs" class="references">
 <div>
