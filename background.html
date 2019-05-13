@@ -25,7 +25,7 @@
 <meta name="author" content="Aji John">
 
 
-<meta name="date" content="2019-02-21">
+<meta name="date" content="2019-05-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -137,11 +137,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
 <li class="chapter" data-level="3" data-path="background.html"><a href="background.html"><i class="fa fa-check"></i><b>3</b> Background</a><ul>
-<li class="chapter" data-level="3.1" data-path="background.html"><a href="background.html#boundary-layer"><i class="fa fa-check"></i><b>3.1</b> Boundary Layer</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="background.html"><a href="background.html#plant-canopies"><i class="fa fa-check"></i><b>3.1.1</b> Plant canopies</a></li>
-<li class="chapter" data-level="3.1.2" data-path="background.html"><a href="background.html#temperature-profile"><i class="fa fa-check"></i><b>3.1.2</b> Temperature profile</a></li>
+<li class="chapter" data-level="3.1" data-path="background.html"><a href="background.html#plant-physiology"><i class="fa fa-check"></i><b>3.1</b> Plant Physiology</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="background.html"><a href="background.html#general-model-of-photosynthesis"><i class="fa fa-check"></i><b>3.1.1</b> General model of photosynthesis</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="background.html"><a href="background.html#statistics-courses"><i class="fa fa-check"></i><b>3.2</b> Statistics Courses</a></li>
+<li class="chapter" data-level="3.2" data-path="background.html"><a href="background.html#boundary-layer"><i class="fa fa-check"></i><b>3.2</b> Boundary Layer</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="background.html"><a href="background.html#effect-canopies"><i class="fa fa-check"></i><b>3.2.1</b> Effect canopies</a></li>
+<li class="chapter" data-level="3.2.2" data-path="background.html"><a href="background.html#temperature-profile"><i class="fa fa-check"></i><b>3.2.2</b> Temperature profile</a></li>
+</ul></li>
 <li class="chapter" data-level="3.3" data-path="background.html"><a href="background.html#molecular-biology"><i class="fa fa-check"></i><b>3.3</b> Molecular Biology</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>4</b> Literature</a></li>
@@ -195,6 +197,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.35" data-path="journal.html"><a href="journal.html#section-34"><i class="fa fa-check"></i><b>8.35</b> 2-03-2019</a></li>
 <li class="chapter" data-level="8.36" data-path="journal.html"><a href="journal.html#section-35"><i class="fa fa-check"></i><b>8.36</b> 2-04-2019</a></li>
 <li class="chapter" data-level="8.37" data-path="journal.html"><a href="journal.html#section-36"><i class="fa fa-check"></i><b>8.37</b> 2-05-2019</a></li>
+<li class="chapter" data-level="8.38" data-path="journal.html"><a href="journal.html#section-37"><i class="fa fa-check"></i><b>8.38</b> 2-23-2019</a></li>
+<li class="chapter" data-level="8.39" data-path="journal.html"><a href="journal.html#section-38"><i class="fa fa-check"></i><b>8.39</b> 2-25-2019</a></li>
+<li class="chapter" data-level="8.40" data-path="journal.html"><a href="journal.html#section-39"><i class="fa fa-check"></i><b>8.40</b> 2-26-2019</a></li>
+<li class="chapter" data-level="8.41" data-path="journal.html"><a href="journal.html#section-40"><i class="fa fa-check"></i><b>8.41</b> 2-27-2019</a></li>
+<li class="chapter" data-level="8.42" data-path="journal.html"><a href="journal.html#section-41"><i class="fa fa-check"></i><b>8.42</b> 3-1-2019</a></li>
+<li class="chapter" data-level="8.43" data-path="journal.html"><a href="journal.html#section-42"><i class="fa fa-check"></i><b>8.43</b> 3-3-2019</a></li>
+<li class="chapter" data-level="8.44" data-path="journal.html"><a href="journal.html#section-43"><i class="fa fa-check"></i><b>8.44</b> 3-9-2019</a></li>
+<li class="chapter" data-level="8.45" data-path="journal.html"><a href="journal.html#section-44"><i class="fa fa-check"></i><b>8.45</b> 3-10-2019</a></li>
+<li class="chapter" data-level="8.46" data-path="journal.html"><a href="journal.html#section-45"><i class="fa fa-check"></i><b>8.46</b> 3-12-2019</a></li>
+<li class="chapter" data-level="8.47" data-path="journal.html"><a href="journal.html#section-46"><i class="fa fa-check"></i><b>8.47</b> 3-21-2019</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -388,17 +400,31 @@ Figure 3.1: Here is a nice figure!
 </tbody>
 </table>
 <p>You can write citations, too. For example, we are using the <strong>bookdown</strong> package <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-bookdown"><strong>???</strong></span>)</span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(John <a href="#ref-aj2018">2018</a>)</span>.</p>
+<div id="plant-physiology" class="section level2">
+<h2><span class="header-section-number">3.1</span> Plant Physiology</h2>
+<p>Ambient temperature affects the biochemical reactions in plants. Conifers possess needle-like leaves that are not shed in cooler temperatures, but their rate of photosynthesis varies seasonally (Jarvis 1975). Optimum temperature response for a species is complex, and for confiers it is further complicated by their shape and structure (conical crown and needle like leaves) and ability to retain photosynthetic activity for long time. The rates of photosynthesis also varies between C-3 or C-4 types of plants (confiers are C-4 type), and the biochemical reactions are linked to fixing the carbon (Photosynthesis) .</p>
+<div id="general-model-of-photosynthesis" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> General model of photosynthesis</h3>
+<p>Photosynthesis is driven by light energy. Plants have pigments (Cholorophyll a, Chlorophyll b and b-carotene) which absorb energy to drive the photosynthesis. The wavelengths that are effective is from the visible light specturum 400 nm to 700nm. Conifers exhibit high absorption in visible and NIR spectrum (700nm to 1500 nm) (Brown et. al 2000). Structure of pigments play a role in absorpion, for eg. one additinal oxygen in Cholorophyll b compared to Chlorophyll a enables it to absorb a different wavelength. Photosyntheis reactions can be split into light dependent and light independent reactions. Light dependent reaction takes in light energy (photons) with water to produce ATP and NADPH, and light independent uses Co2, and outputs from light reaction to produce sugar. Former is termed Electron transport, and the latter Calvin Cycle.</p>
+<div id="light-dependentindependent" class="section level4">
+<h4><span class="header-section-number">3.1.1.1</span> Light dependent/independent</h4>
+<p>Choloroplasts resemble stacked disk structures, and in it are thylakoid membranes. Inside thylakoid membrane (phospolipid layer) is where the reactions take place, namely Photosystem I and Photosystem II.</p>
+<p>Begins with PS II (discovered 2nd), photons comes in, absorbed by Chrolophyll a (~680nm), gets electron from splitting water, resulting into 2 hydrogen and 1 oxygen. The electon is then excited, jumps enegry state and then moves along an electron gradient ( hence the term elctron transparent chain), travels through proteins PQ and PC, and its energy state lowers as it goes through these proteins (exergonic - loses). In addition, increase in H+ causes strong hydrogen gradient inside thylakoid lumen. The electrons that are lowering in states links to PS I.</p>
+<p>PS I (discovered first), photon is absorbed from outside, and excited to be absorbed by variant of Chrolophyll a (~700nm). Electron coming from PS II then moves up its energy state (by the photon), moves to reaction center, the electron then moves to protein FD. NADP reductance takes in 2 electrons produced after FD, with two additional H+ to produce NADPH and ATP synthase. NADPH + ATP produces sugar complex resulting in glocose.</p>
+</div>
+<div id="calvin-cycle" class="section level4">
+<h4><span class="header-section-number">3.1.1.2</span> Calvin Cycle</h4>
+</div>
+</div>
+</div>
 <div id="boundary-layer" class="section level2">
-<h2><span class="header-section-number">3.1</span> Boundary Layer</h2>
-<div id="plant-canopies" class="section level3">
-<h3><span class="header-section-number">3.1.1</span> Plant canopies</h3>
+<h2><span class="header-section-number">3.2</span> Boundary Layer</h2>
+<div id="effect-canopies" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Effect canopies</h3>
 </div>
 <div id="temperature-profile" class="section level3">
-<h3><span class="header-section-number">3.1.2</span> Temperature profile</h3>
+<h3><span class="header-section-number">3.2.2</span> Temperature profile</h3>
 </div>
-</div>
-<div id="statistics-courses" class="section level2">
-<h2><span class="header-section-number">3.2</span> Statistics Courses</h2>
 </div>
 <div id="molecular-biology" class="section level2">
 <h2><span class="header-section-number">3.3</span> Molecular Biology</h2>
