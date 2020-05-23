@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 More than two groups | Notebook</title>
+  <meta name="description" content="Chapter 9 More than two groups | Notebook of my studies, research and wayward explorations." />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 More than two groups | Notebook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Chapter 9 More than two groups | Notebook of my studies, research and wayward explorations." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 More than two groups | Notebook" />
+  
+  <meta name="twitter:description" content="Chapter 9 More than two groups | Notebook of my studies, research and wayward explorations." />
+  
+
+<meta name="author" content="Aji John" />
+
+
+<meta name="date" content="2020-05-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="journal.html">
+<link rel="next" href="files.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.1.17/leaflet-providers.js"></script>
+<script src="libs/leaflet-providers-plugin-2.0.2/leaflet-providers-plugin.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Resarch-notebook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preamble</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#areas-of-interest"><i class="fa fa-check"></i><b>1.1</b> Areas of interest</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#published-papers"><i class="fa fa-check"></i><b>1.2</b> Published papers</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#un-published-papers"><i class="fa fa-check"></i><b>1.3</b> Un-Published papers</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="background.html"><a href="background.html"><i class="fa fa-check"></i><b>3</b> Background</a><ul>
+<li class="chapter" data-level="3.1" data-path="background.html"><a href="background.html#plant-physiology"><i class="fa fa-check"></i><b>3.1</b> Plant Physiology</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="background.html"><a href="background.html#general-model-of-photosynthesis"><i class="fa fa-check"></i><b>3.1.1</b> General model of photosynthesis</a></li>
+<li class="chapter" data-level="3.1.2" data-path="background.html"><a href="background.html#water-movement"><i class="fa fa-check"></i><b>3.1.2</b> Water movement</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="background.html"><a href="background.html#boundary-layer"><i class="fa fa-check"></i><b>3.2</b> Boundary Layer</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="background.html"><a href="background.html#effect-canopies"><i class="fa fa-check"></i><b>3.2.1</b> Effect canopies</a></li>
+<li class="chapter" data-level="3.2.2" data-path="background.html"><a href="background.html#temperature-profile"><i class="fa fa-check"></i><b>3.2.2</b> Temperature profile</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="background.html"><a href="background.html#molecular-biology"><i class="fa fa-check"></i><b>3.3</b> Molecular Biology</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>4</b> Literature</a></li>
+<li class="chapter" data-level="5" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>5</b> Methods</a></li>
+<li class="chapter" data-level="6" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>6</b> Applications</a><ul>
+<li class="chapter" data-level="6.1" data-path="applications.html"><a href="applications.html#microclim.org"><i class="fa fa-check"></i><b>6.1</b> Microclim.org</a></li>
+<li class="chapter" data-level="6.2" data-path="applications.html"><a href="applications.html#biophys.microclim.org"><i class="fa fa-check"></i><b>6.2</b> biophys.microclim.org</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>7</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="8" data-path="journal.html"><a href="journal.html"><i class="fa fa-check"></i><b>8</b> Journal</a><ul>
+<li class="chapter" data-level="8.1" data-path="journal.html"><a href="journal.html#section"><i class="fa fa-check"></i><b>8.1</b> 4-12-2018</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="journal.html"><a href="journal.html#ekoseminar"><i class="fa fa-check"></i><b>8.1.1</b> ekoseminar</a></li>
+<li class="chapter" data-level="8.1.2" data-path="journal.html"><a href="journal.html#meeting-with-jhrl"><i class="fa fa-check"></i><b>8.1.2</b> meeting with jhrl</a></li>
+<li class="chapter" data-level="8.1.3" data-path="journal.html"><a href="journal.html#ekoclimate"><i class="fa fa-check"></i><b>8.1.3</b> ekoclimate</a></li>
+<li class="chapter" data-level="8.1.4" data-path="journal.html"><a href="journal.html#trenchr"><i class="fa fa-check"></i><b>8.1.4</b> trenchR</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="journal.html"><a href="journal.html#section-1"><i class="fa fa-check"></i><b>8.2</b> 4-13-2018</a></li>
+<li class="chapter" data-level="8.3" data-path="journal.html"><a href="journal.html#section-2"><i class="fa fa-check"></i><b>8.3</b> 4-20-2008</a></li>
+<li class="chapter" data-level="8.4" data-path="journal.html"><a href="journal.html#section-3"><i class="fa fa-check"></i><b>8.4</b> 4-23-2008</a></li>
+<li class="chapter" data-level="8.5" data-path="journal.html"><a href="journal.html#section-4"><i class="fa fa-check"></i><b>8.5</b> 4-29-2008</a></li>
+<li class="chapter" data-level="8.6" data-path="journal.html"><a href="journal.html#section-5"><i class="fa fa-check"></i><b>8.6</b> 5-21-2018</a></li>
+<li class="chapter" data-level="8.7" data-path="journal.html"><a href="journal.html#section-6"><i class="fa fa-check"></i><b>8.7</b> 7-26-2018</a></li>
+<li class="chapter" data-level="8.8" data-path="journal.html"><a href="journal.html#section-7"><i class="fa fa-check"></i><b>8.8</b> 8-7-2018</a></li>
+<li class="chapter" data-level="8.9" data-path="journal.html"><a href="journal.html#section-8"><i class="fa fa-check"></i><b>8.9</b> 8-17-2018</a></li>
+<li class="chapter" data-level="8.10" data-path="journal.html"><a href="journal.html#section-9"><i class="fa fa-check"></i><b>8.10</b> 8-23-2018</a></li>
+<li class="chapter" data-level="8.11" data-path="journal.html"><a href="journal.html#section-10"><i class="fa fa-check"></i><b>8.11</b> 8-24-2018</a></li>
+<li class="chapter" data-level="8.12" data-path="journal.html"><a href="journal.html#section-11"><i class="fa fa-check"></i><b>8.12</b> 9-23-2018</a></li>
+<li class="chapter" data-level="8.13" data-path="journal.html"><a href="journal.html#section-12"><i class="fa fa-check"></i><b>8.13</b> 10-1-2018</a></li>
+<li class="chapter" data-level="8.14" data-path="journal.html"><a href="journal.html#next-steps"><i class="fa fa-check"></i><b>8.14</b> Next steps</a></li>
+<li class="chapter" data-level="8.15" data-path="journal.html"><a href="journal.html#section-13"><i class="fa fa-check"></i><b>8.15</b> 10-2-2018</a></li>
+<li class="chapter" data-level="8.16" data-path="journal.html"><a href="journal.html#section-14"><i class="fa fa-check"></i><b>8.16</b> 10-17-2018</a></li>
+<li class="chapter" data-level="8.17" data-path="journal.html"><a href="journal.html#open-to-dos"><i class="fa fa-check"></i><b>8.17</b> Open to-dos</a></li>
+<li class="chapter" data-level="8.18" data-path="journal.html"><a href="journal.html#section-15"><i class="fa fa-check"></i><b>8.18</b> 10-04-2018</a></li>
+<li class="chapter" data-level="8.19" data-path="journal.html"><a href="journal.html#section-16"><i class="fa fa-check"></i><b>8.19</b> 11-04-2018</a></li>
+<li class="chapter" data-level="8.20" data-path="journal.html"><a href="journal.html#section-17"><i class="fa fa-check"></i><b>8.20</b> 11-19-2018</a></li>
+<li class="chapter" data-level="8.21" data-path="journal.html"><a href="journal.html#section-18"><i class="fa fa-check"></i><b>8.21</b> 12-17-2018</a></li>
+<li class="chapter" data-level="8.22" data-path="journal.html"><a href="journal.html#section-19"><i class="fa fa-check"></i><b>8.22</b> 12-21-2018</a></li>
+<li class="chapter" data-level="8.23" data-path="journal.html"><a href="journal.html#section-20"><i class="fa fa-check"></i><b>8.23</b> 1-3-2019</a></li>
+<li class="chapter" data-level="8.24" data-path="journal.html"><a href="journal.html#section-21"><i class="fa fa-check"></i><b>8.24</b> 1-9-2019</a></li>
+<li class="chapter" data-level="8.25" data-path="journal.html"><a href="journal.html#section-22"><i class="fa fa-check"></i><b>8.25</b> 1-10-2019</a></li>
+<li class="chapter" data-level="8.26" data-path="journal.html"><a href="journal.html#section-23"><i class="fa fa-check"></i><b>8.26</b> 1-11-2019</a></li>
+<li class="chapter" data-level="8.27" data-path="journal.html"><a href="journal.html#section-24"><i class="fa fa-check"></i><b>8.27</b> 1-12-2019</a></li>
+<li class="chapter" data-level="8.28" data-path="journal.html"><a href="journal.html#section-25"><i class="fa fa-check"></i><b>8.28</b> 1-15-2019</a></li>
+<li class="chapter" data-level="8.29" data-path="journal.html"><a href="journal.html#section-26"><i class="fa fa-check"></i><b>8.29</b> 1-16-2019</a></li>
+<li class="chapter" data-level="8.30" data-path="journal.html"><a href="journal.html#section-27"><i class="fa fa-check"></i><b>8.30</b> 1-17-2019</a></li>
+<li class="chapter" data-level="8.31" data-path="journal.html"><a href="journal.html#section-28"><i class="fa fa-check"></i><b>8.31</b> 1-24-2019</a></li>
+<li class="chapter" data-level="8.32" data-path="journal.html"><a href="journal.html#section-29"><i class="fa fa-check"></i><b>8.32</b> 1-29-2019</a></li>
+<li class="chapter" data-level="8.33" data-path="journal.html"><a href="journal.html#section-30"><i class="fa fa-check"></i><b>8.33</b> 2-03-2019</a></li>
+<li class="chapter" data-level="8.34" data-path="journal.html"><a href="journal.html#section-31"><i class="fa fa-check"></i><b>8.34</b> 2-04-2019</a></li>
+<li class="chapter" data-level="8.35" data-path="journal.html"><a href="journal.html#section-32"><i class="fa fa-check"></i><b>8.35</b> 2-05-2019</a></li>
+<li class="chapter" data-level="8.36" data-path="journal.html"><a href="journal.html#section-33"><i class="fa fa-check"></i><b>8.36</b> 2-23-2019</a></li>
+<li class="chapter" data-level="8.37" data-path="journal.html"><a href="journal.html#section-34"><i class="fa fa-check"></i><b>8.37</b> 2-26-2019</a></li>
+<li class="chapter" data-level="8.38" data-path="journal.html"><a href="journal.html#section-35"><i class="fa fa-check"></i><b>8.38</b> 2-27-2019</a></li>
+<li class="chapter" data-level="8.39" data-path="journal.html"><a href="journal.html#section-36"><i class="fa fa-check"></i><b>8.39</b> 3-1-2019</a></li>
+<li class="chapter" data-level="8.40" data-path="journal.html"><a href="journal.html#section-37"><i class="fa fa-check"></i><b>8.40</b> 3-3-2019</a></li>
+<li class="chapter" data-level="8.41" data-path="journal.html"><a href="journal.html#section-38"><i class="fa fa-check"></i><b>8.41</b> 3-9-2019</a></li>
+<li class="chapter" data-level="8.42" data-path="journal.html"><a href="journal.html#section-39"><i class="fa fa-check"></i><b>8.42</b> 3-10-2019</a></li>
+<li class="chapter" data-level="8.43" data-path="journal.html"><a href="journal.html#section-40"><i class="fa fa-check"></i><b>8.43</b> 3-12-2019</a></li>
+<li class="chapter" data-level="8.44" data-path="journal.html"><a href="journal.html#section-41"><i class="fa fa-check"></i><b>8.44</b> 11-23-2019</a></li>
+<li class="chapter" data-level="8.45" data-path="journal.html"><a href="journal.html#section-42"><i class="fa fa-check"></i><b>8.45</b> 3-21-2019</a></li>
+<li class="chapter" data-level="8.46" data-path="journal.html"><a href="journal.html#section-43"><i class="fa fa-check"></i><b>8.46</b> 11-19-2019</a></li>
+<li class="chapter" data-level="8.47" data-path="journal.html"><a href="journal.html#section-44"><i class="fa fa-check"></i><b>8.47</b> 11-20-2019</a></li>
+<li class="chapter" data-level="8.48" data-path="journal.html"><a href="journal.html#section-45"><i class="fa fa-check"></i><b>8.48</b> 5-24-2019</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="more-than-two-groups.html"><a href="more-than-two-groups.html"><i class="fa fa-check"></i><b>9</b> More than two groups</a></li>
+<li class="chapter" data-level="10" data-path="files.html"><a href="files.html"><i class="fa fa-check"></i><b>10</b> 2019 files</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notebook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="more-than-two-groups" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> More than two groups</h1>
+<p>#:::::::::::::::::::::::::::::::::::::::::::::::::
+# Pairwise comparisons: Specify the comparisons you want
+my_comparisons &lt;- list( c(“0.5”, “1”), c(“1”, “2”), c(“0.5”, “2”) )
+ggboxplot(ToothGrowth, x = “dose”, y = “len”,
+color = “dose”, palette = “npg”)+
+# Add pairwise comparisons p-value
+stat_compare_means(comparisons = my_comparisons, label.y = c(29, 35, 40))+
+stat_compare_means(label.y = 45)</p>
+<pre class="sourceCode r"><code class="sourceCode r"> allsites_filtered &lt;-<span class="st"> </span>All_sites <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">hc =</span> <span class="kw">log</span>(height)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(height <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>hr <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">24</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(temp <span class="op">&gt;</span><span class="st"> </span><span class="dv">-20</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()
+  
+my_comparisons &lt;-<span class="st"> </span><span class="kw">list</span>( <span class="kw">c</span>(<span class="fl">0.3</span>, <span class="fl">0.6</span>) ,<span class="kw">c</span>(<span class="fl">0.6</span>, <span class="fl">0.9</span>),<span class="kw">c</span>(<span class="fl">0.9</span>, <span class="fl">1.2</span>),<span class="kw">c</span>(<span class="fl">0.3</span>, <span class="fl">1.2</span>))
+   <span class="kw">ggboxplot</span>(allsites_filtered, <span class="dt">x =</span> <span class="st">&quot;height&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;temp&quot;</span>,
+         <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>,<span class="st">&quot;#E7B800&quot;</span>),
+         <span class="dt">add =</span> <span class="st">&quot;boxplot&quot;</span>, <span class="dt">add.params =</span> <span class="kw">list</span>(<span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>))<span class="op">+</span>
+<span class="st">  </span><span class="kw">stat_compare_means</span>(<span class="dt">comparisons =</span> my_comparisons) <span class="op">+</span><span class="st"> </span><span class="co"># Add significance levels</span>
+<span class="st">  </span><span class="kw">stat_compare_means</span>(<span class="dt">label.y =</span> <span class="dv">50</span>)   <span class="op">+</span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Temperature between open and dense canopies (Hourly)&quot;</span>,<span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Temperature(°C)&quot;</span>, <span class="dt">tag=</span><span class="st">&quot;&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;&quot;</span>)</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-274-1.png" width="672" />
+density plots</p>
+<pre class="sourceCode r"><code class="sourceCode r"> allsites_filtered_ridge &lt;-<span class="st"> </span>All_sites <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">hc =</span> <span class="kw">log</span>(height), <span class="dt">hfac =</span> <span class="kw">as.factor</span>(height)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(height <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;</span><span class="st"> </span>hr <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">24</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(temp <span class="op">&gt;</span><span class="st"> </span><span class="dv">-20</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()
+  
+<span class="kw">ggdensity</span>(allsites_filtered_ridge, <span class="dt">x =</span> <span class="st">&quot;temp&quot;</span>,
+   <span class="dt">add =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">rug =</span> <span class="ot">TRUE</span>,
+   <span class="dt">color =</span> <span class="st">&quot;canopy&quot;</span>, <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span>
+<span class="st">     </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot; Temperature (°C)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Density&quot;</span>,<span class="dt">color=</span><span class="st">&quot;Canopy&quot;</span>)</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-275-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;chap1_buffer_gaps_density.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">8</span>, <span class="dt">width=</span><span class="dv">8</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<p>by height across all elevations</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggdensity</span>(allsites_filtered_ridge, <span class="dt">x =</span> <span class="st">&quot;temp&quot;</span>,
+   <span class="dt">add =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">rug =</span> <span class="ot">TRUE</span>,<span class="dt">facet.by =</span> <span class="st">&quot;height&quot;</span>,
+   <span class="dt">color =</span> <span class="st">&quot;canopy&quot;</span>, <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span>
+<span class="st">     </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot; Temperature (°C)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Density&quot;</span>,<span class="dt">color=</span><span class="st">&quot;Canopy&quot;</span>)</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-276-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;chap1_buffer_gaps_density_heights.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">8</span>, <span class="dt">width=</span><span class="dv">8</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<p>by elevation</p>
+<p>by height across all elevations, by hour</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggdensity</span>(allsites_filtered_ridge, <span class="dt">x =</span> <span class="st">&quot;temp&quot;</span>,
+   <span class="dt">add =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">rug =</span> <span class="ot">TRUE</span>,<span class="dt">facet.by =</span> <span class="st">&quot;hr&quot;</span>,
+   <span class="dt">color =</span> <span class="st">&quot;canopy&quot;</span>, <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span>
+<span class="st">     </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Temperature (°C)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Density&quot;</span>,<span class="dt">color=</span><span class="st">&quot;Canopy&quot;</span>)</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;chap1_buffer_gaps_density_hr.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">8</span>, <span class="dt">width=</span><span class="dv">12</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<p>by canopy across all the hours</p>
+<pre class="sourceCode r"><code class="sourceCode r">allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">mean</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggdotplot</span>( <span class="st">&quot;hr&quot;</span>, <span class="st">&quot;mt&quot;</span>, 
+            <span class="dt">fill =</span> <span class="st">&quot;canopy&quot;</span>,
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">   </span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&quot;Canopy&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;&quot;</span>,  <span class="dt">x=</span><span class="st">&quot; Time (hour)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Mean Temperature (°C)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">18</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</code></pre>
+<pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-278-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;chap1_bufferhrs_redo.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">8</span>, <span class="dt">width=</span><span class="dv">12</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggpubr)
+allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">mean</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggboxplot</span>(<span class="dt">x=</span> <span class="st">&quot;canopy&quot;</span>, <span class="dt">y=</span><span class="st">&quot;mt&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;canopy&quot;</span>,
+<span class="dt">add=</span><span class="st">&quot;jitter&quot;</span>, <span class="dt">error.plot =</span> <span class="st">&quot;errorbar&quot;</span>,
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">   </span><span class="kw">labs</span>(<span class="dt">subtitle =</span> <span class="st">&quot;&quot;</span>,  <span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Mean Temperature (°C)&quot;</span>) <span class="op">+</span>
+<span class="st">   </span><span class="kw">stat_compare_means</span>( <span class="kw">aes</span>(<span class="dt">label =</span> ..p.signif..), 
+                        <span class="dt">label.x =</span> <span class="fl">1.5</span>, <span class="dt">label.y =</span> <span class="dv">15</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>,<span class="dv">15</span>)<span class="op">+</span>
+<span class="st">   </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Dense canopy&quot;</span>, <span class="st">&quot;Gaps&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;&quot;</span>)</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-279-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r">temp1_hyp1 &lt;-<span class="st"> </span>allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">mean</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggboxplot</span>(<span class="dt">x=</span> <span class="st">&quot;canopy&quot;</span>, <span class="dt">y=</span><span class="st">&quot;mt&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;canopy&quot;</span>,
+<span class="dt">add=</span><span class="st">&quot;jitter&quot;</span>, <span class="dt">error.plot =</span> <span class="st">&quot;errorbar&quot;</span>,
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">   </span><span class="kw">labs</span>(<span class="dt">subtitle =</span> <span class="st">&quot;&quot;</span>,  <span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Mean Temperature (°C)&quot;</span>) <span class="op">+</span>
+<span class="st">   </span><span class="kw">stat_compare_means</span>( <span class="kw">aes</span>(<span class="dt">label =</span> ..p.signif..), 
+                        <span class="dt">label.x =</span> <span class="fl">1.5</span>, <span class="dt">label.y =</span> <span class="dv">15</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>,<span class="dv">15</span>)<span class="op">+</span>
+<span class="st">   </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Dense canopy&quot;</span>, <span class="st">&quot;Gaps&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;&quot;</span>)
+<span class="kw">ggsave</span>(<span class="st">&quot;chap1_bufferhrs_redo_mt.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">8</span>, <span class="dt">width=</span><span class="dv">12</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<p>Mean temperature at different eight</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggpubr)
+allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(height,canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">mean</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggboxplot</span>(<span class="dt">x=</span> <span class="st">&quot;canopy&quot;</span>, <span class="dt">y=</span><span class="st">&quot;mt&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;canopy&quot;</span>,
+<span class="dt">add=</span><span class="st">&quot;jitter&quot;</span>, <span class="dt">error.plot =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">facet.by =</span> <span class="st">&quot;height&quot;</span>, <span class="dt">short.panel.labs =</span> <span class="ot">FALSE</span>,
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">   </span><span class="kw">labs</span>(<span class="dt">subtitle =</span> <span class="st">&quot;&quot;</span>,  <span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Mean Temperature (°C)&quot;</span>) <span class="op">+</span>
+<span class="st">   </span><span class="kw">stat_compare_means</span>( <span class="kw">aes</span>(<span class="dt">label =</span> ..p.signif..), 
+                        <span class="dt">label.x =</span> <span class="fl">1.5</span>, <span class="dt">label.y =</span> <span class="dv">15</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>,<span class="dv">15</span>)<span class="op">+</span>
+<span class="st">   </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Dense canopy&quot;</span>, <span class="st">&quot;Gaps&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;&quot;</span>)</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-280-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r">temp2_hyp1 &lt;-<span class="st"> </span>allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(height,canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">mean</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggboxplot</span>(<span class="dt">x=</span> <span class="st">&quot;canopy&quot;</span>, <span class="dt">y=</span><span class="st">&quot;mt&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;canopy&quot;</span>,
+<span class="dt">add=</span><span class="st">&quot;jitter&quot;</span>, <span class="dt">error.plot =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="dt">facet.by =</span> <span class="st">&quot;height&quot;</span>, <span class="dt">short.panel.labs =</span> <span class="ot">FALSE</span>,
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">   </span><span class="kw">labs</span>(<span class="dt">subtitle =</span> <span class="st">&quot;&quot;</span>,  <span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Mean Temperature (°C)&quot;</span>) <span class="op">+</span>
+<span class="st">   </span><span class="kw">stat_compare_means</span>( <span class="kw">aes</span>(<span class="dt">label =</span> ..p.signif..), 
+                        <span class="dt">label.x =</span> <span class="fl">1.5</span>, <span class="dt">label.y =</span> <span class="dv">15</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>,<span class="dv">15</span>)<span class="op">+</span>
+<span class="st">   </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Dense canopy&quot;</span>, <span class="st">&quot;Gaps&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;&quot;</span>)
+
+<span class="kw">ggsave</span>(<span class="st">&quot;chap1_bufferhrs_redo_mt_height.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">8</span>, <span class="dt">width=</span><span class="dv">12</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggpubr)
+allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,day) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">mean</span>(temp),<span class="dt">dv=</span><span class="kw">max</span>(temp)<span class="op">-</span><span class="kw">min</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggboxplot</span>(<span class="dt">x=</span> <span class="st">&quot;canopy&quot;</span>, <span class="dt">y=</span><span class="st">&quot;dv&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;canopy&quot;</span>,
+<span class="dt">add=</span><span class="st">&quot;jitter&quot;</span>, <span class="dt">error.plot =</span> <span class="st">&quot;errorbar&quot;</span>, 
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">   </span><span class="kw">labs</span>(<span class="dt">subtitle =</span> <span class="st">&quot;&quot;</span>,  <span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Diurnal variation (°C)&quot;</span>) <span class="op">+</span>
+<span class="st">   </span><span class="kw">stat_compare_means</span>( <span class="kw">aes</span>(<span class="dt">label =</span> ..p.signif..), 
+                        <span class="dt">label.x =</span> <span class="fl">1.5</span>, <span class="dt">label.y =</span> <span class="dv">15</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>,<span class="dv">15</span>)<span class="op">+</span>
+<span class="st">   </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Dense canopy&quot;</span>, <span class="st">&quot;Gaps&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;&quot;</span>)</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-281-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r">dv1_hyp1 &lt;-<span class="st"> </span>allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,day) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">mean</span>(temp),<span class="dt">dv=</span><span class="kw">max</span>(temp)<span class="op">-</span><span class="kw">min</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggboxplot</span>(<span class="dt">x=</span> <span class="st">&quot;canopy&quot;</span>, <span class="dt">y=</span><span class="st">&quot;dv&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;canopy&quot;</span>,
+<span class="dt">add=</span><span class="st">&quot;jitter&quot;</span>, <span class="dt">error.plot =</span> <span class="st">&quot;errorbar&quot;</span>, 
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">   </span><span class="kw">labs</span>(<span class="dt">subtitle =</span> <span class="st">&quot;&quot;</span>,  <span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Diurnal variation (°C)&quot;</span>) <span class="op">+</span>
+<span class="st">   </span><span class="kw">stat_compare_means</span>( <span class="kw">aes</span>(<span class="dt">label =</span> ..p.signif..), 
+                        <span class="dt">label.x =</span> <span class="fl">1.5</span>, <span class="dt">label.y =</span> <span class="dv">15</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>,<span class="dv">15</span>)<span class="op">+</span>
+<span class="st">   </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Dense canopy&quot;</span>, <span class="st">&quot;Gaps&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;&quot;</span>)
+<span class="kw">ggsave</span>(<span class="st">&quot;chap1_bufferhrs_redo_mt_diurnal.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">8</span>, <span class="dt">width=</span><span class="dv">12</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggpubr)
+allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,height,day) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">mean</span>(temp),<span class="dt">dv=</span><span class="kw">max</span>(temp)<span class="op">-</span><span class="kw">min</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggboxplot</span>(<span class="dt">x=</span> <span class="st">&quot;canopy&quot;</span>, <span class="dt">y=</span><span class="st">&quot;dv&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;canopy&quot;</span>,
+<span class="dt">add=</span><span class="st">&quot;jitter&quot;</span>, <span class="dt">error.plot =</span> <span class="st">&quot;errorbar&quot;</span>,  <span class="dt">facet.by =</span> <span class="st">&quot;height&quot;</span>, <span class="dt">short.panel.labs =</span> <span class="ot">FALSE</span>,
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">   </span><span class="kw">labs</span>(<span class="dt">subtitle =</span> <span class="st">&quot;&quot;</span>,  <span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Diurnal variation (°C)&quot;</span>) <span class="op">+</span>
+<span class="st">   </span><span class="kw">stat_compare_means</span>( <span class="kw">aes</span>(<span class="dt">label =</span> ..p.signif..), 
+                        <span class="dt">label.x =</span> <span class="fl">1.5</span>, <span class="dt">label.y =</span> <span class="dv">15</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>,<span class="dv">15</span>)<span class="op">+</span>
+<span class="st">   </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Dense canopy&quot;</span>, <span class="st">&quot;Gaps&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;&quot;</span>)</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-282-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r">dv2_hyp1 &lt;-<span class="st">  </span>allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,height,day) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">mean</span>(temp),<span class="dt">dv=</span><span class="kw">max</span>(temp)<span class="op">-</span><span class="kw">min</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggboxplot</span>(<span class="dt">x=</span> <span class="st">&quot;canopy&quot;</span>, <span class="dt">y=</span><span class="st">&quot;dv&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;canopy&quot;</span>,
+<span class="dt">add=</span><span class="st">&quot;jitter&quot;</span>, <span class="dt">error.plot =</span> <span class="st">&quot;errorbar&quot;</span>,  <span class="dt">facet.by =</span> <span class="st">&quot;height&quot;</span>, <span class="dt">short.panel.labs =</span> <span class="ot">FALSE</span>,
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">   </span><span class="kw">labs</span>(<span class="dt">subtitle =</span> <span class="st">&quot;&quot;</span>,  <span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Diurnal variation (°C)&quot;</span>) <span class="op">+</span>
+<span class="st">   </span><span class="kw">stat_compare_means</span>( <span class="kw">aes</span>(<span class="dt">label =</span> ..p.signif..), 
+                        <span class="dt">label.x =</span> <span class="fl">1.5</span>, <span class="dt">label.y =</span> <span class="dv">15</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>,<span class="dv">15</span>)<span class="op">+</span>
+<span class="st">   </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Dense canopy&quot;</span>, <span class="st">&quot;Gaps&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;&quot;</span>)
+
+<span class="kw">ggsave</span>(<span class="st">&quot;chap1_bufferhrs_redo_mt_diurnal_height.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">8</span>, <span class="dt">width=</span><span class="dv">12</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(patchwork)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;patchwork&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:cowplot&#39;:
+## 
+##     align_plots</code></pre>
+<pre><code>## The following object is masked from &#39;package:raster&#39;:
+## 
+##     area</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">(temp2_hyp1 <span class="op">+</span><span class="st"> </span>temp1_hyp1) <span class="op">/</span>(dv2_hyp1 <span class="op">+</span><span class="st"> </span>dv1_hyp1)</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-283-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;chap1_buffer_gaps_hyp1_mp.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">12</span>, <span class="dt">width=</span><span class="dv">14</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<p>Combine the plot</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggdensity</span>(allsites_elevation_sigf, <span class="dt">x =</span> <span class="st">&quot;dv&quot;</span>,
+   <span class="dt">add =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">rug =</span> <span class="ot">TRUE</span>,<span class="dt">facet.by =</span> <span class="st">&quot;elevation&quot;</span>,
+   <span class="dt">color =</span> <span class="st">&quot;canopy&quot;</span>, <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span>
+<span class="st">     </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot; Diel Temperature (°C)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Density&quot;</span>,<span class="dt">color=</span><span class="st">&quot;Canopy&quot;</span>)</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-284-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;chap1_buffer_gaps_density_elevation_dv.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">8</span>, <span class="dt">width=</span><span class="dv">8</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<p>by height across all elevations, by hour</p>
+<pre class="sourceCode r"><code class="sourceCode r">point6 &lt;-<span class="st"> </span>allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(height<span class="op">==</span><span class="fl">0.6</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">mean</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggdotplot</span>( <span class="st">&quot;hr&quot;</span>, <span class="st">&quot;mt&quot;</span>, 
+            <span class="dt">fill =</span> <span class="st">&quot;canopy&quot;</span>,
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">   </span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&quot;&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;0.6m&quot;</span>,  <span class="dt">x=</span><span class="st">&quot; Time (hour)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Mean Temperature (°C)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">18</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;&quot;</span>)
+
+point3 &lt;-<span class="st"> </span>allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(height<span class="op">==</span><span class="fl">0.3</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">mean</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggdotplot</span>( <span class="st">&quot;hr&quot;</span>, <span class="st">&quot;mt&quot;</span>, 
+            <span class="dt">fill =</span> <span class="st">&quot;canopy&quot;</span>, 
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">       </span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&quot;&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;0.3m&quot;</span>,<span class="dt">x=</span><span class="st">&quot; Time (hour)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Mean Temperature (°C)&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">18</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;&quot;</span>)
+point9 &lt;-<span class="st"> </span>allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(height<span class="op">==</span><span class="fl">0.9</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">mean</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggdotplot</span>( <span class="st">&quot;hr&quot;</span>, <span class="st">&quot;mt&quot;</span>, 
+            <span class="dt">fill =</span> <span class="st">&quot;canopy&quot;</span>,
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">      </span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&quot;&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;0.9m&quot;</span>,<span class="dt">x=</span><span class="st">&quot; Time (hour)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Min Temperature (°C)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">18</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,<span class="dt">legend.direction =</span> <span class="st">&quot;horizontal&quot;</span>)
+
+onepoint2 &lt;-<span class="st"> </span>allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(height<span class="op">==</span><span class="fl">1.2</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">mean</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggdotplot</span>( <span class="st">&quot;hr&quot;</span>, <span class="st">&quot;mt&quot;</span>, 
+            <span class="dt">fill =</span> <span class="st">&quot;canopy&quot;</span>,
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">     </span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&quot;&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;1.2m&quot;</span>,<span class="dt">x=</span><span class="st">&quot; Time (hour)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Min Temperature (°C)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">18</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,<span class="dt">legend.direction =</span> <span class="st">&quot;horizontal&quot;</span>)
+
+<span class="kw">library</span>(patchwork)
+(point3 <span class="op">+</span><span class="st"> </span>point6) <span class="op">/</span><span class="st"> </span>(point9 <span class="op">+</span><span class="st"> </span>onepoint2)</code></pre>
+<pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-285-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;chap1_buffer_gaps_hr_by_height_redo.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">10</span>, <span class="dt">width=</span><span class="dv">12</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p>by height across all elevations, by hour min</p>
+<pre class="sourceCode r"><code class="sourceCode r">point6 &lt;-<span class="st"> </span>allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(height<span class="op">==</span><span class="fl">0.6</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">min</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggdotplot</span>( <span class="st">&quot;hr&quot;</span>, <span class="st">&quot;mt&quot;</span>, 
+            <span class="dt">fill =</span> <span class="st">&quot;canopy&quot;</span>,
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">   </span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&quot;&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;0.6m&quot;</span>,  <span class="dt">x=</span><span class="st">&quot; Time (hour)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Min Temperature (°C)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">18</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;&quot;</span>)
+
+point3 &lt;-<span class="st"> </span>allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(height<span class="op">==</span><span class="fl">0.3</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">min</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggdotplot</span>( <span class="st">&quot;hr&quot;</span>, <span class="st">&quot;mt&quot;</span>, 
+            <span class="dt">fill =</span> <span class="st">&quot;canopy&quot;</span>,
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">       </span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&quot;&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;0.3m&quot;</span>,<span class="dt">x=</span><span class="st">&quot; Time (hour)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Min Temperature (°C)&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">18</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;&quot;</span>)
+point9 &lt;-<span class="st"> </span>allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(height<span class="op">==</span><span class="fl">0.9</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">min</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggdotplot</span>( <span class="st">&quot;hr&quot;</span>, <span class="st">&quot;mt&quot;</span>, 
+             <span class="dt">fill =</span> <span class="st">&quot;canopy&quot;</span>,
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">    </span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&quot;&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;0.9m&quot;</span>,<span class="dt">x=</span><span class="st">&quot; Time (hour)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Min Temperature (°C)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">18</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,<span class="dt">legend.direction =</span> <span class="st">&quot;horizontal&quot;</span>)
+
+onepoint2 &lt;-<span class="st"> </span>allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(height<span class="op">==</span><span class="fl">1.2</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">min</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggdotplot</span>( <span class="st">&quot;hr&quot;</span>, <span class="st">&quot;mt&quot;</span>, 
+            <span class="dt">fill =</span> <span class="st">&quot;canopy&quot;</span>, 
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">    </span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&quot;&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;1.2m&quot;</span>,<span class="dt">x=</span><span class="st">&quot; Time (hour)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Min Temperature (°C)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">18</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,<span class="dt">legend.direction =</span> <span class="st">&quot;horizontal&quot;</span>)
+
+<span class="kw">library</span>(patchwork)
+(point3 <span class="op">+</span><span class="st"> </span>point6) <span class="op">/</span><span class="st"> </span>(point9 <span class="op">+</span><span class="st"> </span>onepoint2)</code></pre>
+<pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-286-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;chap1_buffer_gaps_hr_by_height_min_redo.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">10</span>, <span class="dt">width=</span><span class="dv">12</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p>max</p>
+<pre class="sourceCode r"><code class="sourceCode r">point6 &lt;-<span class="st"> </span>allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(height<span class="op">==</span><span class="fl">0.6</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">max</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggdotplot</span>( <span class="st">&quot;hr&quot;</span>, <span class="st">&quot;mt&quot;</span>, 
+            <span class="dt">fill =</span> <span class="st">&quot;canopy&quot;</span>,
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">   </span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&quot;&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;0.6m&quot;</span>,  <span class="dt">x=</span><span class="st">&quot; Time (hour)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Max Temperature (°C)&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">18</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;&quot;</span>)
+
+point3 &lt;-<span class="st"> </span>allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(height<span class="op">==</span><span class="fl">0.3</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">max</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggdotplot</span>( <span class="st">&quot;hr&quot;</span>, <span class="st">&quot;mt&quot;</span>, 
+            <span class="dt">fill =</span> <span class="st">&quot;canopy&quot;</span>,
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">       </span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&quot;&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;0.3m&quot;</span>,<span class="dt">x=</span><span class="st">&quot; Time (hour)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Max Temperature (°C)&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">18</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;&quot;</span>)
+point9 &lt;-<span class="st"> </span>allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(height<span class="op">==</span><span class="fl">0.9</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">max</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggdotplot</span>( <span class="st">&quot;hr&quot;</span>, <span class="st">&quot;mt&quot;</span>, 
+             <span class="dt">fill =</span> <span class="st">&quot;canopy&quot;</span>,
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">    </span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&quot;&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;0.9m&quot;</span>,<span class="dt">x=</span><span class="st">&quot; Time (hour)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Max Temperature (°C)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">18</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,<span class="dt">legend.direction =</span> <span class="st">&quot;horizontal&quot;</span>)
+
+onepoint2 &lt;-<span class="st"> </span>allsites_filtered_ridge <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(canopy,hr) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(height<span class="op">==</span><span class="fl">1.2</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">mt=</span> <span class="kw">max</span>(temp)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggdotplot</span>( <span class="st">&quot;hr&quot;</span>, <span class="st">&quot;mt&quot;</span>, 
+            <span class="dt">fill =</span> <span class="st">&quot;canopy&quot;</span>, 
+    <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span><span class="st">    </span><span class="kw">labs</span>(<span class="dt">fill=</span><span class="st">&quot;&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;1.2m&quot;</span>,<span class="dt">x=</span><span class="st">&quot; Time (hour)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Max Temperature (°C)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">18</span>) <span class="op">+</span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,<span class="dt">legend.direction =</span> <span class="st">&quot;horizontal&quot;</span>)
+
+<span class="kw">library</span>(patchwork)
+(point3 <span class="op">+</span><span class="st"> </span>point6) <span class="op">/</span><span class="st"> </span>(point9 <span class="op">+</span><span class="st"> </span>onepoint2)</code></pre>
+<pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-287-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;chap1_buffer_gaps_hr_by_height_max_redo.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">10</span>, <span class="dt">width=</span><span class="dv">12</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p>first hump is early mornings, where the open canopy is warming</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggdensity</span>(allsites_elevation_sigf, <span class="dt">x =</span> <span class="st">&quot;dv&quot;</span>,
+   <span class="dt">add =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">rug =</span> <span class="ot">TRUE</span>,<span class="dt">facet.by =</span> <span class="st">&quot;elevation&quot;</span>,
+   <span class="dt">color =</span> <span class="st">&quot;canopy&quot;</span>, <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span>
+<span class="st">     </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot; Diel Temperature (°C)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Density&quot;</span>,<span class="dt">color=</span><span class="st">&quot;Canopy&quot;</span>)</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-288-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;chap1_buffer_gaps_density_elevation_dv.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">8</span>, <span class="dt">width=</span><span class="dv">8</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggdensity</span>(allsites_elevation_sigf, <span class="dt">x =</span> <span class="st">&quot;mean_temp&quot;</span>,
+   <span class="dt">add =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">rug =</span> <span class="ot">TRUE</span>,<span class="dt">facet.by =</span> <span class="st">&quot;elevation&quot;</span>,
+   <span class="dt">color =</span> <span class="st">&quot;canopy&quot;</span>, <span class="dt">palette =</span> <span class="kw">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>)) <span class="op">+</span>
+<span class="st">     </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) </code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-289-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;chap1_buffer_gaps_density_elevation_mean_temp.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">8</span>, <span class="dt">width=</span><span class="dv">8</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">All_site_withelevationheight &lt;-<span class="st"> </span>All_site_withelevation <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">hcf=</span> <span class="kw">factor</span>(height))
+<span class="kw">ggdensity</span>(All_site_withelevationheight, <span class="dt">x =</span> <span class="st">&quot;temp&quot;</span>,
+   <span class="dt">add =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">rug =</span> <span class="ot">TRUE</span>,<span class="dt">facet.by =</span> <span class="st">&quot;elevation&quot;</span>,
+   <span class="dt">color =</span> <span class="st">&quot;hcf&quot;</span>,<span class="dt">fill=</span><span class="st">&quot;hcf&quot;</span>) <span class="op">+</span>
+<span class="st">     </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) </code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-290-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;chap1_buffer_gaps_density_elevation_height_temp.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">8</span>, <span class="dt">width=</span><span class="dv">8</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<p>impo resut - early morning 1.2 is much warmer , day time ground is warmer</p>
+<pre class="sourceCode r"><code class="sourceCode r">All_site_withelevationheight &lt;-<span class="st"> </span>All_site_withelevation <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">hcf=</span> <span class="kw">factor</span>(height))
+ap &lt;-<span class="st"> </span><span class="kw">ggdensity</span>(All_site_withelevationheight, <span class="dt">x =</span> <span class="st">&quot;temp&quot;</span>,
+   <span class="dt">add =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">rug =</span> <span class="ot">TRUE</span>,
+   <span class="dt">color =</span> <span class="st">&quot;hcf&quot;</span>) <span class="op">+</span>
+<span class="st">     </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) 
+ap <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot; Temperature (°C)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Density&quot;</span>,<span class="dt">color=</span><span class="st">&quot;Height (m)&quot;</span>)</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-291-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;chap1_buffer_gaps_density_height_profile.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">8</span>, <span class="dt">width=</span><span class="dv">8</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">All_site_withelevationheight &lt;-<span class="st"> </span>All_site_withelevation <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">hcf=</span> <span class="kw">factor</span>(height))
+ap &lt;-<span class="st"> </span><span class="kw">ggdensity</span>(All_site_withelevationheight, <span class="dt">x =</span> <span class="st">&quot;temp&quot;</span>,
+   <span class="dt">add =</span> <span class="st">&quot;mean&quot;</span>, <span class="dt">rug =</span> <span class="ot">TRUE</span>,
+   <span class="dt">color =</span> <span class="st">&quot;hcf&quot;</span>) <span class="op">+</span>
+<span class="st">     </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) 
+ap <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(elevation <span class="op">~</span><span class="st"> </span>hcf, <span class="dt">scales=</span><span class="st">&#39;free&#39;</span>)</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-292-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;chap1_buffer_gaps_density_height_elevation_profile.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">8</span>, <span class="dt">width=</span><span class="dv">8</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">All_site_withelevationheight &lt;-<span class="st"> </span>All_site_withelevation <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">hcf=</span> <span class="kw">factor</span>(height))
+ap &lt;-<span class="st"> </span><span class="kw">ggdensity</span>(All_site_withelevationheight,<span class="dt">x =</span> <span class="st">&quot;temp&quot;</span>,
+   <span class="dt">color =</span> <span class="st">&quot;canopy&quot;</span>, <span class="dt">rug =</span> <span class="ot">TRUE</span>) <span class="op">+</span>
+<span class="st">     </span><span class="kw">theme_minimal</span>(<span class="dt">base_size=</span><span class="dv">24</span>) 
+ap <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(elevation <span class="op">~</span><span class="st"> </span>hcf, <span class="dt">scales=</span><span class="st">&#39;free&#39;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot; Temperature (°C)&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Density&quot;</span>,<span class="dt">color=</span><span class="st">&quot;Canopy&quot;</span>)</code></pre>
+<p><img src="Research_book_files/figure-html/unnamed-chunk-293-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;chap1_buffer_gaps_density_height_elevation_profile.png&quot;</span>,<span class="dt">dpi=</span><span class="dv">300</span>, <span class="dt">dev=</span><span class="st">&#39;png&#39;</span>, <span class="dt">height=</span><span class="dv">8</span>, <span class="dt">width=</span><span class="dv">12</span>, <span class="dt">units=</span><span class="st">&quot;in&quot;</span>)</code></pre>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="journal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="files.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-dailylog.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Research book.pdf", "Research book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
